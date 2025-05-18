@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Dancing+Script:wght@700&family=Oswald:wght@900&family=Lora:wght@400;500;600&display=swap');
+
+.header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+  background: url('../../public/images/bg2.png') no-repeat center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: lighten;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  font-family: 'Lora', serif;
+}
+
+.image-container {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-wrapper {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.header.show .image-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-wrapper.left {
+  transform: rotate(-15deg) translateY(50px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.header.show .image-wrapper.left {
+  transform: rotate(-15deg) translateY(0);
+}
+
+.image-wrapper.center {
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
+
+.image-wrapper.right {
+  transform: rotate(15deg) translateY(50px);
+  transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
+}
+
+.header.show .image-wrapper.right {
+  transform: rotate(15deg) translateY(0);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border: 8px solid #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin: 2rem 0;
+  font-family: 'Playfair Display', serif;
+  padding: 0 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.date-info {
+  font-family: 'Dancing Script', cursive;
+  margin: 2rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 1.6s, transform 0.8s ease 1.6s;
+}
+
+.header.show .date-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.subtitle {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.3rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.3s;
+}
+
+.graduate-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #b07d32;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.4s;
+}
+
+.graduate-message {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  color: #b07d32;
+  text-align: center;
+  margin: 0.8rem 0 1.5rem 0;
+  font-style: normal;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 1.8s, transform 0.8s ease 1.8s;
+}
+
+.header.show .graduate-message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-button-fixed {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2000;
+  opacity: 0.95;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.scroll-button-fixed:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-icon {
+  font-size: 2rem;
+  color: #b07d32;
+  animation: bounceDown 1.5s infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+.invitation-line {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #333;
+  text-align: center;
+  margin: 2rem 0 1.2rem 0;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.invitation-line .graduate-name {
+  color: #b07d32;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-left: 0.3rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpLeft {
+  from {
+    opacity: 0;
+    transform: rotate(-15deg) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-15deg) translateY(0);
+  }
+}
+
+@keyframes fadeInUpRight {
+  from {
+    opacity: 0;
+    transform: rotate(15deg) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(15deg) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .image-container {
+    gap: 1rem;
+  }
+
+  .image-wrapper {
+    width: 150px;
+    height: 200px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+  }
+
+  .scroll-button-fixed {
+    right: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.2rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrow-icon {
+    font-size: 1.5rem;
+  }
+
+  .invitation-line {
+    font-size: 1.1rem;
+  }
+  .invitation-line .graduate-name {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .image-wrapper {
+    width: 110px;
+    height: 150px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .scroll-button-fixed {
+    right: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1.2rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrow-icon {
+    font-size: 1.5rem;
+  }
+
+  .invitation-line {
+    font-size: 1rem;
+  }
+  .invitation-line .graduate-name {
+    font-size: 1rem;
+  }
+}
+
+.header-title {
+  text-align: center;
+  margin: 2.5rem 0 1.5rem 0;
+  font-family: unset;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s;
+}
+
+.header.show .header-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header-title * {
+  font-family: unset;
+}
+
+.invited-arc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 1s, transform 0.8s ease 1s;
+}
+
+.header.show .invited-arc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.invited-arc span {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #444;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+  display: inline-block;
+  transform: rotate(-5deg) skew(-8deg);
+  /* Chữ cong nhẹ */
+}
+
+.graduate-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.2rem;
+}
+
+.graduation-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.2rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 1.2s, transform 0.8s ease 1.2s;
+}
+
+.header.show .graduation-script {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.graduate-name-block {
+  font-family: 'Oswald', 'Montserrat', Arial, sans-serif;
+  font-size: 2.2rem;
+  color: #222;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 2px 2px 0 #eee, 0 2px 8px rgba(0,0,0,0.18);
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 1.4s, transform 0.8s ease 1.4s;
+}
+
+.header.show .graduate-name-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Đảm bảo calendar giữ font riêng */
+.calendar,
+.calendar * {
+  font-family: unset;
+}
+
+@media (max-width: 768px) {
+  .graduation-script {
+    font-size: 2.1rem;
+  }
+  .graduate-name-block {
+    font-size: 1.3rem;
+  }
+  .invited-arc span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .graduation-script {
+    font-size: 1.3rem;
+  }
+  .graduate-name-block {
+    font-size: 1rem;
+  }
+  .invited-arc span {
+    font-size: 0.9rem;
+  }
+} 

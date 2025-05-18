@@ -1,0 +1,50 @@
+.scroll-button-fixed {
+  position: fixed;
+  bottom: 1.3rem;
+  right: 1.3rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2000;
+  opacity: 0.95;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.scroll-button-fixed:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+  color: #070400;
+  animation: bounceDown 1.5s infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+@media (max-width: 600px) {
+  .scroll-button-fixed {
+    right: 2.5rem;
+    left: auto;
+    transform: none;
+    bottom: 0.6rem;
+    width: 30px;
+    height: 30px;
+  }
+  .arrow-icon {
+    font-size: 0.8rem;
+  }
+} 

@@ -1,0 +1,23 @@
+.thankyou-section {
+  background: linear-gradient(135deg, #fdf6f0 60%, #e3eafc 100%);
+  border-radius: 24px;
+  margin: 3rem auto 0 auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.thankyou-content h3 {
+  
+  font-size: 2rem;
+  color: #b07d32;
+  margin-bottom: 1rem;
+}
+
+.thankyou-content p {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.0rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.7;
+} 

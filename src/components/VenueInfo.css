@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&display=swap');
+body {
+  scroll-behavior: smooth;
+  font-family: "Dosis", sans-serif !important;
+}
+
+.venue-info, .venue-info * {
+  font-family: "Dosis", sans-serif !important;
+}
+
+.venue-info {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,2,.6,1), transform 0.8s cubic-bezier(.4,2,.6,1);
+}
+.venue-info.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.venue-details {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.venue-info.show .venue-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.venue-details h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.venue-info.show .venue-details h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.address, .time {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0.5rem 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.venue-info.show .address,
+.venue-info.show .time {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.venue-info.show .address:nth-child(3) { transition-delay: 0.3s; }
+.venue-info.show .time:nth-child(4) { transition-delay: 0.4s; }
+.venue-info.show .time:nth-child(5) { transition-delay: 0.5s; }
+
+.bold {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.venue-icon {
+  font-size: 1.2em;
+  vertical-align: middle;
+  margin-right: 0.4em;
+  color: #6f6556;
+}
+.phone-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.phone-link:hover {
+  color: #b07d32;
+  text-decoration: underline;
+}
+
+.venue-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
+}
+
+.venue-info.show .venue-media {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.venue-image, .venue-map {
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.venue-info.show .venue-image {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.7s;
+}
+
+.venue-info.show .venue-map {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.8s;
+}
+
+.venue-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venue-animated-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  animation: moveCrazy 8s linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.icon-heart {
+  font-size: 2.2rem;
+  color: #e57373;
+  animation: fadeInOut 8s linear infinite;
+  position: absolute;
+}
+
+.icon-message {
+  font-size: 1rem;
+  color: #b07d32;
+  margin-top: 0.5rem;
+  opacity: 0;
+  animation: showMessage 8s linear infinite;
+  white-space: nowrap;
+  position: absolute;
+  left: 2.5rem;
+  top: 0;
+}
+
+@keyframes moveCrazy {
+  0%   { top: 0; left: 0; }
+  10%  { top: 10%; left: 70%; }
+  20%  { top: 25%; left: 20%; }
+  30%  { top: 40%; left: 80%; }
+  40%  { top: 60%; left: 10%; }
+  50%  { top: 80%; left: 60%; }
+  60%  { top: 90%; left: 30%; }
+  70%  { top: 60%; left: 80%; }
+  80%  { top: 30%; left: 50%; }
+  90%  { top: 10%; left: 20%; }
+  100% { top: 0; left: 0; }
+}
+
+@keyframes fadeInOut {
+  0%, 80%, 100% { opacity: 1; }
+  40%, 60% { opacity: 0.5; }
+}
+
+@keyframes showMessage {
+  0%, 70%, 100% { opacity: 0; }
+  80%, 90% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .venue-info {
+    padding: 2rem 1rem;
+  }
+
+  .venue-details h2 {
+    font-size: 1.8rem;
+  }
+
+  .address, .time {
+    font-size: 1.1rem;
+  }
+
+  .venue-media {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .venue-image, .venue-map {
+    height: 300px;
+  }
+
+  /* Thêm animation cho mobile */
+  .venue-details, .venue-media {
+    transform: translateY(20px);
+  }
+
+  .venue-image, .venue-map {
+    transform: scale(0.98);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .venue-info {
+    padding: 1.5rem 1rem;
+  }
+
+  .venue-details h2 {
+    font-size: 1.5rem;
+  }
+
+  .address, .time {
+    font-size: 1rem;
+  }
+
+  .venue-image, .venue-map {
+    height: 250px;
+  }
+
+  /* Điều chỉnh animation cho màn hình nhỏ */
+  .venue-details, .venue-media {
+    transform: translateY(15px);
+  }
+
+  .venue-image, .venue-map {
+    transform: scale(0.99);
+  }
+} 

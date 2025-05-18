@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MdSchool, MdPhone, MdLocationOn, MdAccessTime, MdFavorite } from 'react-icons/md';
+import { MdSchool, MdPhone, MdLocationOn, MdAccessTime, MdFavorite, MdLocalParking } from 'react-icons/md';
 import './VenueInfo.css';
 
 // Đảm bảo đã thêm link Material Icons vào public/index.html
@@ -50,6 +50,26 @@ const VenueInfo = () => {
           <a href="tel:0344223083" className="phone-link">
             <MdPhone className="venue-icon" />
             0344223083
+          </a>
+        </p>
+        <p className="parking">
+          Parking available at:
+          <a
+            className="parking-address"
+            href="https://maps.app.goo.gl/z4bMoECfa4Ex4Xg96"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Location 1
+          </a>
+          <span className="parking-or">or</span>
+          <a
+            className="parking-address"
+            href="https://maps.app.goo.gl/jWtM2mLs37F4KAjD7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Location 2
           </a>
         </p>
       </div>

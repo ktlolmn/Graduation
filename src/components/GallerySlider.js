@@ -64,10 +64,14 @@ const GallerySlider = () => {
               src={img.src}
               alt={img.alt}
               className={`gallery-img${isMobile ? ' gallery-img-mobile' : ''}`}
-              style={{ pointerEvents: (isMobile || centerIndex === i) ? 'auto' : 'none', cursor: (isMobile || centerIndex === i) ? 'pointer' : 'default' }}
+              style={{ 
+                pointerEvents: (isMobile || centerIndex === i) ? 'auto' : 'none', 
+                cursor: (isMobile || centerIndex === i) ? 'pointer' : 'default' 
+              }}
               onClick={() => {
                 if (isMobile || centerIndex === i) {
-                  setOpen(true); setIndex(i);
+                  setOpen(true); 
+                  setIndex(i);
                 }
               }}
             />
@@ -75,7 +79,7 @@ const GallerySlider = () => {
         ))}
       </Slider>
       <Lightbox
-        styles={{ marginTop: "20px" }}
+        styles={{ container: { marginTop: "20px" } }}
         open={open}
         close={() => setOpen(false)}
         slides={images.map(img => ({ src: img.src, alt: img.alt }))}
@@ -86,4 +90,4 @@ const GallerySlider = () => {
   );
 };
 
-export default GallerySlider; 
+export default GallerySlider;

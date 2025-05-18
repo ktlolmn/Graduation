@@ -247,7 +247,7 @@ body {
   }
 
   .address, .time {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .venue-image, .venue-map {
@@ -262,4 +262,34 @@ body {
   .venue-image, .venue-map {
     transform: scale(0.99);
   }
-} 
+}
+
+.parking {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0.5rem 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.venue-info.show .parking {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+.parking-address {
+  display: inline;
+  margin-left: 0;
+  color: #666;
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.parking-address:not(:last-child) {
+  margin-right: 8px;
+}
+.parking-or {
+  margin-right: 4px;
+  color: #444;
+}

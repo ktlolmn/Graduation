@@ -515,7 +515,7 @@
 
 .header-title {
   text-align: center;
-  margin: 18rem 0 1.5rem 0px;
+  margin: 20rem 0 1.5rem 0px;
   font-family: unset;
   opacity: 0;
   transform: translateY(40px);
@@ -619,6 +619,10 @@
 }
 
 @media (max-width: 480px) {
+
+  .header-title{
+    margin: 18rem 0 1.5rem 0px;
+  }
   .graduation-script {
     font-size: 1.8rem;
   }

@@ -79,8 +79,8 @@ const Header = () => {
           </div>
         </div>
         <div className="collage-col right">
-          <img src="/images/img4.jpg" alt="Collage 3" className="collage-img img3" />
-          <img src="/images/img3.jpg" alt="Collage 4" className="collage-img img4" />
+          <img src="/images/img8.jpg" alt="Collage 3" className="collage-img img3" />
+          <img src="/images/bg5.jpg" alt="Collage 4" className="collage-img img4" />
         </div>
       </div>
       <div className="date-info">

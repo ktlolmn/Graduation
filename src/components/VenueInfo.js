@@ -38,10 +38,7 @@ const VenueInfo = () => {
         <p className="addres bold">
           Ho Chi Minh University Of Banking
         </p>
-        <p className="address">
-          <MdLocationOn className="venue-icon" />
-          56 Hoang Dieu 2, Linh Chieu Ward, Thu Duc City, Ho Chi Minh City
-        </p>
+        
         <p className="time">
           <MdAccessTime className="venue-icon" />
           15:30 - 17:00, May 31, 2025
@@ -71,6 +68,10 @@ const VenueInfo = () => {
           >
             Location 2
           </a>
+        </p>
+        <p className="address">
+          <MdLocationOn className="venue-icon" />
+          56 Hoang Dieu 2, Linh Chieu Ward, Thu Duc City, Ho Chi Minh City
         </p>
       </div>
       <div className="venue-media">

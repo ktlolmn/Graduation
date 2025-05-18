@@ -23,8 +23,8 @@ const Calendar = ({ date }) => {
   return (
     <div className="calendar">
       <div className="calendar-header">
-        <h3>{month}</h3>
-        <span className="year">{year}</span>
+        
+        <span className="year">{month}, {year}</span>
       </div>
       <div className="calendar-grid">
         <div className="weekdays">

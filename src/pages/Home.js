@@ -7,7 +7,7 @@ import ScrollButton from '../components/ScrollButton';
 
 const Home = () => {
   return (
-    <div className="home">
+    <div style={{overflowX: 'hidden'}} className="home">
       <Header />
       <VenueInfo />
       <GallerySlider />

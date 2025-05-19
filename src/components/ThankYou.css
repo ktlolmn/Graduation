@@ -76,6 +76,18 @@
   }
 }
 
+.copyright-note {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Dosis', sans-serif;
+  z-index: 1000;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
 @media (max-width: 768px) {
   .thankyou-section {
     min-height: 400px;
@@ -96,5 +108,11 @@
   .rsvp-button {
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
+  }
+
+  .copyright-note {
+    font-size: 0.3rem;
+    bottom: 5px;
+    left: 5px;
   }
 }

@@ -27,6 +27,9 @@ const ThankYou = () => {
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
       />
+      <div className="copyright-note">
+        © LuuThanh
+      </div>
     </div>
   );
 };

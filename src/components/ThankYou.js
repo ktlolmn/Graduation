@@ -8,6 +8,7 @@ const ThankYou = () => {
   return (
     <div className="thankyou-section">
       <div className="thankyou-content">
+        <h3>Thank You!</h3>
         <div className="button-container">
           <button 
             className="rsvp-button"
@@ -17,7 +18,6 @@ const ThankYou = () => {
           </button>
           <span className="click-here">Click here</span>
         </div>
-        <h3>Thank You!</h3>
         <p>
           Thank you for your love and support.<br/>
           It is my great honor to welcome you to this special day!

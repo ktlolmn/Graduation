@@ -53,24 +53,20 @@ const VenueInfo = () => {
           </a>
         </p>
         <p className="parking">
-          Parking available at:
-          <a
+          Parking:
+          <button
             className="parking-address"
-            href="https://maps.app.goo.gl/z4bMoECfa4Ex4Xg96"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => window.open('https://maps.app.goo.gl/z4bMoECfa4Ex4Xg96', '_blank')}
           >
             Location 1
-          </a>
+          </button>
           <span className="parking-or">or</span>
-          <a
+          <button
             className="parking-address"
-            href="https://maps.app.goo.gl/jWtM2mLs37F4KAjD7"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => window.open('https://maps.app.goo.gl/jWtM2mLs37F4KAjD7', '_blank')}
           >
             Location 2
-          </a>
+          </button>
         </p>
       </div>
       <div className="venue-media">

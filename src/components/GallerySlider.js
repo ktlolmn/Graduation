@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Slider from 'react-slick';
 import Lightbox from 'yet-another-react-lightbox';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import 'yet-another-react-lightbox/styles.css';
 import './GallerySlider.css';
 
@@ -18,74 +15,65 @@ const images = [
 const GallerySlider = () => {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-  const [centerIndex, setCenterIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 900);
-  const sliderRef = useRef();
+  const itemRefs = useRef([]);
+  const [visible, setVisible] = useState(Array(images.length).fill(false));
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 900);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const observers = [];
+    itemRefs.current.forEach((ref, i) => {
+      if (!ref) return;
+      observers[i] = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisible(v => {
+              const newV = [...v];
+              newV[i] = true;
+              return newV;
+            });
+          } else {
+            setVisible(v => {
+              const newV = [...v];
+              newV[i] = false;
+              return newV;
+            });
+          }
+        },
+        { 
+          threshold: 0.2,
+          rootMargin: '50px'
+        }
+      );
+      observers[i].observe(ref);
+    });
+    return () => observers.forEach(obs => obs && obs.disconnect());
   }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: isMobile ? 1 : 3,
-    slidesToScroll: 1,
-    centerMode: !isMobile,
-    centerPadding: '0px',
-    focusOnSelect: true,
-    draggable: true,
-    swipe: true,
-    afterChange: (current) => {
-      setCenterIndex(isMobile ? current % images.length : (current + 1) % images.length);
-    },
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 1,
-          centerMode: false,
-          draggable: true,
-          swipe: true,
-        },
-      },
-    ],
-  };
-
   return (
-    <div className="gallery-slider">
-      <Slider {...settings} ref={sliderRef}>
+    <div className="gallery-section">
+      <h2 className="gallery-title">Album</h2>
+      <div className="gallery-grid">
         {images.map((img, i) => (
-          <div key={i} className="gallery-slide">
+          <div
+            key={i}
+            ref={el => (itemRefs.current[i] = el)}
+            className={`gallery-grid-item ${i % 2 === 0 ? 'from-left' : 'from-right'} ${visible[i] ? 'show' : ''}`}
+          >
             <img
               src={img.src}
               alt={img.alt}
-              className={`gallery-img${isMobile ? ' gallery-img-mobile' : ''}`}
-              style={{ 
-                pointerEvents: (isMobile || centerIndex === i) ? 'auto' : 'none', 
-                cursor: (isMobile || centerIndex === i) ? 'pointer' : 'default' 
-              }}
-              onClick={() => {
-                if (isMobile || centerIndex === i) {
-                  setOpen(true); 
-                  setIndex(i);
-                }
-              }}
+              className="gallery-img-grid"
+              onClick={() => { setOpen(true); setIndex(i); }}
             />
           </div>
         ))}
-      </Slider>
-      <Lightbox
-        styles={{ container: { marginTop: "20px" } }}
-        open={open}
-        close={() => setOpen(false)}
-        slides={images.map(img => ({ src: img.src, alt: img.alt }))}
-        index={index}
-        on={{ view: ({ index }) => setIndex(index) }}
-      />
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={images.map(img => ({ src: img.src, alt: img.alt }))}
+          index={index}
+          on={{ view: ({ index }) => setIndex(index) }}
+        />
+      </div>
     </div>
   );
 };

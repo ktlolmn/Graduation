@@ -149,12 +149,6 @@ body {
   justify-content: flex-start;
 }
 
-.icon-heart {
-  font-size: 2.2rem;
-  color: #e57373;
-  animation: fadeInOut 8s linear infinite;
-  position: absolute;
-}
 
 .icon-message {
   font-size: 1rem;
@@ -234,6 +228,11 @@ body {
   .venue-image, .venue-map {
     transform: scale(0.98);
   }
+
+  .parking-address {
+    padding: 3px 8px;
+    font-size: 0.8rem;
+  }
 }
 
 /* Small Mobile */
@@ -279,17 +278,33 @@ body {
   transition-delay: 0.6s;
 }
 .parking-address {
-  display: inline;
-  margin-left: 0;
-  color: #666;
-  font-size: 1rem;
-  text-decoration: underline;
+  display: inline-block;
+  margin: 0 4px;
+  color: #fff;
+  font-size: 0.85rem;
+  text-decoration: none;
   cursor: pointer;
+  background: #000000;
+  border-radius: 3px;
+  padding: 2px 10px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(176, 125, 50, 0.2);
+}
+.parking-address:hover {
+  background: #fff;
+  color: #000000af;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(176, 125, 50, 0.2);
 }
 .parking-address:not(:last-child) {
   margin-right: 8px;
 }
 .parking-or {
-  margin-right: 4px;
-  color: #444;
+  margin: 0 4px;
+  color: #666;
+  font-size: 0.85rem;
 }

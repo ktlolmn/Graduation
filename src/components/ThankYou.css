@@ -1,23 +1,100 @@
 .thankyou-section {
-  background: linear-gradient(135deg, #fdf6f0 60%, #e3eafc 100%);
-  border-radius: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  background: url('/public/images/img2.jpg') center/cover no-repeat;
   margin: 3rem auto 0 auto;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  padding: 2.5rem 1.5rem;
+  overflow: hidden;
+}
+
+.thankyou-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 2rem;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(4px);
+  margin: 0 auto;
   text-align: center;
 }
 
 .thankyou-content h3 {
-  
-  font-size: 2rem;
-  color: #b07d32;
-  margin-bottom: 1rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .thankyou-content p {
-  font-family: "Rubik", sans-serif;
-  font-size: 1.0rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
   color: #333;
-  margin: 0;
   line-height: 1.7;
-} 
+  text-align: center;
+}
+
+.rsvp-button {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Dosis', sans-serif;
+  margin-top: 1rem;
+}
+
+.rsvp-button:hover {
+  background: #a88b60;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(185, 155, 112, 0.4);
+}
+
+.click-here {
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 500;
+  animation: slideLeftRight 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes slideLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .thankyou-section {
+    min-height: 400px;
+  }
+  
+  .thankyou-content {
+    padding: 1.5rem;
+  }
+  
+  .thankyou-content h3 {
+    font-size: 2.5rem;
+  }
+  
+  .thankyou-content p {
+    font-size: 1.2rem;
+  }
+
+  .rsvp-button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
